@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="primary">
-      <v-toolbar-title>Quaesto</v-toolbar-title>
+      <v-toolbar-title class="white--text">Quaesto</v-toolbar-title>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -33,5 +33,5 @@ export default {
 .v-card {
   background-image: url("/background.jpg");
   background-repeat: repeat;
-} 
+}
 </style>
