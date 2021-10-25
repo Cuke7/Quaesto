@@ -29,12 +29,13 @@ export default {
       this.$router.push("/" + id);
     },
     highlight(text) {
-      let matchedTerms = this.searchQuery.replace(" ", "|");
+      let matchedTerms = this.searchQuery.replaceAll(" ", "|");
+      console.log(matchedTerms);
 
       if (!this.searchQuery) {
         return text;
       }
-      return text.replace(new RegExp("(" + matchedTerms + ")", "gi"), match => {
+      return text.replace(new RegExp("(?:^|(?<= ))(" + matchedTerms + ")(?:(?= )|$)", "gi"), match => {
         return '<span class="highlightText">' + match + "</span>";
       });
     }

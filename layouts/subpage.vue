@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="primary">
-      <v-btn icon @click="hasHistory() ? $router.go(-1) : $router.push('/')">
+      <v-btn icon @click="$router.push('/')">
         <v-icon color="white">
           mdi-arrow-left
         </v-icon>
@@ -42,10 +42,6 @@ export default {
           .then(() => console.log("Shared!"))
           .catch(error => console.log("Error sharing", error));
       }
-    },
-
-    hasHistory() {
-      return window.history.length > 2;
     }
   }
 };
