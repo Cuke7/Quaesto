@@ -6,16 +6,12 @@
           {{ paragrapheTitle }}
         </div>
 
-        <v-row justify="space-around" class="mb-1">
+        <v-row justify="space-around" align="center" class="mb-1">
           <v-col cols="4" class="text-center">
-            <v-chip color="primary" outlined>
-              Navigation
-            </v-chip>
+            <Navigation></Navigation>
           </v-col>
           <v-col cols="4" class="text-center" v-if="paragraphe[1].length > 0">
-            <v-chip color="primary" outlined>
-              Introduction
-            </v-chip>
+            <Introduction :intro="paragraphe[1]"></Introduction>
           </v-col>
           <v-col cols="4" class="text-center">
             <v-chip color="primary" :outlined="isEnbref" @click="gotoEnbref">

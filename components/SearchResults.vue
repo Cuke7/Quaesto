@@ -35,9 +35,12 @@ export default {
       if (!this.searchQuery) {
         return text;
       }
-      return text.replace(new RegExp("(?:^|(?<= ))(" + matchedTerms + ")(?:(?= )|$)", "gi"), match => {
-        return '<span class="highlightText">' + match + "</span>";
-      });
+      return text.replace(
+        new RegExp("(?:^|(?<= ))(" + matchedTerms + ")(?:(?= )|$)", "gi"),
+        match => {
+          return '<span class="highlightText">' + match + "</span>";
+        }
+      );
     }
   },
   computed: {
