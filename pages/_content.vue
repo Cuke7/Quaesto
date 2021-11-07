@@ -8,7 +8,7 @@
 
         <v-row justify="space-around" align="center" class="mb-1">
           <v-col cols="4" class="text-center">
-            <Navigation></Navigation>
+            <Navigation :content="content"></Navigation>
           </v-col>
           <v-col cols="4" class="text-center" v-if="paragraphe[1].length > 0">
             <Introduction :intro="paragraphe[1]"></Introduction>
@@ -49,7 +49,7 @@ export default {
   layout: "subpage",
 
   async asyncData({ params }) {
-    const content = params.content; // When calling /abc the slug will be "abc"
+    const content = params.content;
     return { content };
   },
 
