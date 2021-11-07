@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary">
+    <v-app-bar app color="primary" class="rounded-b-xl">
       <v-toolbar-title class="white--text">Quaesto</v-toolbar-title>
     </v-app-bar>
     <v-main>

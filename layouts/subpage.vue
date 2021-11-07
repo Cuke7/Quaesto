@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary">
+    <v-app-bar app color="primary" class="rounded-b-xl">
       <v-btn icon @click="$router.push('/')">
         <v-icon color="white">
           mdi-arrow-left
