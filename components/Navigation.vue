@@ -12,19 +12,28 @@
         </v-chip>
       </template>
       <v-card>
-        <v-toolbar dark color="primary">
+        <v-app-bar dark color="primary">
           <v-btn icon @click="dialog = false">
             <v-icon>mdi-close</v-icon>
           </v-btn>
           <v-toolbar-title>Table des matières</v-toolbar-title>
-        </v-toolbar>
-        <v-card-text>
+        </v-app-bar>
+        <v-card-text class="pa-0">
           <!-- <div v-for="(entry, index) in tableMatiere" :key="index">
             <NuxtLink v-if="entry.level == 5" :to="entry.id">
               {{ entry.level }} {{ entry.title }} {{ entry.id }}
             </NuxtLink>
           </div> -->
-          <v-treeview :items="tableMatiere"></v-treeview>
+          <v-treeview :items="tableMatiere" open-on-click :open="openArray">
+            <template v-slot:label="{ item }">
+              <NuxtLink v-if="item.children.length == 0" :to="item.id">
+                {{ item.name }}
+              </NuxtLink>
+              <div v-else>
+                {{ item.name }}
+              </div>
+            </template>
+          </v-treeview>
         </v-card-text>
       </v-card>
     </v-dialog>
@@ -36,12 +45,28 @@ export default {
   props: ["content"],
   data() {
     return {
-      dialog: false
+      dialog: false,
+      test: ["0", "0-2"]
     };
   },
   computed: {
     cec() {
       return this.$store.state.cec;
+    },
+    openArray() {
+      let content = this.content.split("-");
+      let openArray = [];
+      let acc = "";
+      for (const letter of content) {
+        acc += "-" + letter;
+        openArray.push(acc);
+      }
+      let final = [];
+      for (const elem of openArray) {
+        final.push(elem.substring(1));
+      }
+      console.log(final);
+      return final;
     },
     tableMatiere() {
       let cec = this.cec;
@@ -109,7 +134,8 @@ export default {
                       "-" +
                       String(para) +
                       "-" +
-                      String(r),
+                      String(r) +
+                      "-12",
                     name: cec[p][s][c][a][para][r][0],
                     children: []
                   });

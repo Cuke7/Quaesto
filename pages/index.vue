@@ -28,7 +28,7 @@ export default {
     //
   },
   data: () => ({
-    searchQuery: "je crois en Dieu",
+    searchQuery: "immaculée conception",
     searchResults: []
   }),
   methods: {
